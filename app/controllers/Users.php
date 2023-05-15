@@ -10,7 +10,8 @@
         // Process form
   
         // Sanitize POST data
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        //FILTER_SANITIZE is deprecated so i used filter_unsafe_raw instead, apparently its the same thing
+        $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
 
         // Init data
         $data =[
@@ -97,8 +98,8 @@
       // Check for POST
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         // Process form
-        // Sanitize POST data
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        // see line 25
+        $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
         
         // Init data
         $data =[
